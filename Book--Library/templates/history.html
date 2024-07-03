@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Borrow History</h2>
+<table>
+    <tr>
+        <th>Book</th>
+        <th>Borrow Date</th>
+        <th>Return Date</th>
+    </tr>
+    {% for entry in borrow_history %}
+    <tr>
+        <td>{{ entry.book.title }}</td>
+        <td>{{ entry.borrow_date }}</td>
+        <td>{{ entry.return_date if entry.return_date else 'Not Returned' }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
